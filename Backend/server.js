@@ -47,15 +47,16 @@ app.get('/api/weapons', async (req, res) => {
 
 // 3. POST: Add a new weapon to the cloud
 // UPDATE a weapon
-app.put('/api/weapons/:id', async (req, res) => {
-  try {
-    const { id } = req.params; // Get the ID from the URL
-    const updatedWeapon = await Weapon.findByIdAndUpdate(id, req.body, { new: true });
-    res.json(updatedWeapon);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+// 3. POST: Add a new weapon to the cloud
+app.post('/api/weapons', async (req, res) => {
+    try {
+        const newWeapon = new Weapon(req.body);
+        await newWeapon.save(); // Saves to MongoDB Atlas
+        res.status(201).json(newWeapon);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+})
 
 // --- IGNITION ---
 app.listen(PORT, () => {
