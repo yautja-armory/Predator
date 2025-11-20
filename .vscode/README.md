@@ -1,0 +1,2 @@
+echo "# Frey Project" > README.md
+```[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHzEJL4jBNl5F2H1gQxv4FfaXw2--LSEF4USzHGT3kjLFujk7BMeiDNZHkhiSiKz9Y0cHeDPW_2qwvfNnh0TpeXXlPHNiyot3KM6In0pxyLougSu9L9_BkfQr3AFohbu23yYpbGc_VGIcO2JY38Nwi0AOWi3u6VjvkjAT22jULjGDpe5iID2AINQjXZbk0gN0qNAiH2K8mhm1A%3D)]
