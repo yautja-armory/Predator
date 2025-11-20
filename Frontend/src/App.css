@@ -1,203 +1,190 @@
+/* App.css - The "Shopify Admin" Theme */
 :root {
-  --predator-green: #00ff41;
-  --predator-dim: #003b00;
-  --bg-color: #050505;
+  --bg-body: #f6f6f7;
+  --bg-surface: #ffffff;
+  --border-color: #e1e3e5;
+  --text-primary: #202223;
+  --text-secondary: #6d7175;
+  --shopify-green: #008060;
+  --shopify-green-dark: #004c3f;
+  --danger: #d82c0d;
+  --focus-ring: rgba(0, 128, 96, 0.24);
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--predator-green);
-  font-family: 'Courier New', Courier, monospace;
   margin: 0;
-  overflow-x: hidden;
+  padding: 0;
+  background-color: var(--bg-body);
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Helvetica, sans-serif;
+  color: var(--text-primary);
 }
 
 .app-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-  background-image: 
-    linear-gradient(rgba(0, 20, 0, 0.9), rgba(0, 10, 0, 0.9)),
-    repeating-linear-gradient(0deg, transparent, transparent 2px, #00ff4110 3px);
+  padding: 40px 20px;
 }
 
+/* --- Header --- */
 .hud-header {
-  border-bottom: 2px solid var(--predator-green);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px var(--predator-green);
+  margin-bottom: 20px;
 }
 
-.weapon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.hud-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.weapon-card {
-  border: 1px solid var(--predator-green);
-  background: rgba(0, 20, 0, 0.8);
-  padding: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 5px var(--predator-dim);
-}
-
-.weapon-card:hover {
-  box-shadow: 0 0 20px var(--predator-green);
-  transform: translateY(-5px);
-  background: rgba(0, 40, 0, 0.9);
-}
-
-.weapon-name {
-  font-size: 1.5rem;
-  margin: 0 0 10px 0;
-  text-transform: uppercase;
-}
-
-.damage-bar-container {
-  height: 10px;
-  background: var(--predator-dim);
-  margin-top: 5px;
-  border: 1px solid #333;
-  width: 100%;
-}
-
-.damage-fill {
-  height: 100%;
-  background: var(--predator-green);
-  box-shadow: 0 0 10px var(--predator-green);
-}
-
-.status-blink {
-  animation: blink 2s infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-/* --- ADD THIS TO THE BOTTOM OF App.css --- */
-
-/* The Fabrication Panel (Form) */
+/* --- The Form (Fabricator) --- */
 .fabricator-panel {
-  border: 1px dashed var(--predator-green);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   padding: 20px;
-  margin-bottom: 40px;
-  background: rgba(0, 20, 0, 0.5);
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
 }
 
 .fabricator-panel h3 {
   margin-top: 0;
-  border-bottom: 1px solid var(--predator-dim);
-  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .input-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Input Styling */
 input {
-  background: #000;
-  border: 1px solid var(--predator-green);
-  color: var(--predator-green);
-  padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
-  flex: 1;
-  outline: none;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #8c9196;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border 0.2s;
 }
 
 input:focus {
-  box-shadow: 0 0 10px var(--predator-green);
+  outline: none;
+  border-color: var(--shopify-green);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
-/* The Button */
-button.action-btn {
-  background: var(--predator-dim);
-  color: var(--predator-green);
-  border: 1px solid var(--predator-green);
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-  text-transform: uppercase;
-  transition: all 0.2s;
-}
-
-button.action-btn:hover {
-  background: var(--predator-green);
-  color: black;
-  box-shadow: 0 0 15px var(--predator-green);
-}
-
-/* Delete Button styling */
-.delete-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
+/* --- Buttons --- */
+.action-btn {
+  background-color: var(--shopify-green);
+  color: white;
   border: none;
-  color: #ff4444; /* Red for delete */
-  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1.2rem;
-}
-.delete-btn:hover {
-  text-shadow: 0 0 5px red;
-}
-@keyframes scan-flash {
-  0% { background-color: rgba(0, 255, 65, 0.8); }
-  100% { background-color: transparent; }
+  transition: background 0.2s;
 }
 
-.flash-success {
-  animation: scan-flash 0.5s ease-out;
+.action-btn:hover {
+  background-color: var(--shopify-green-dark);
 }
-/* --- PHASE 2 UPGRADES --- */
 
-/* Button Container on Card */
-.card-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.action-btn.cancel {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  margin-left: 10px;
+}
+
+.action-btn.cancel:hover {
+  background-color: #f1f2f3;
+}
+
+/* --- The Grid (Product List) --- */
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.weapon-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.weapon-card:hover {
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-header {
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.weapon-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.weapon-details {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+.price-tag {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
 }
 
 .icon-btn {
-  background: black;
-  border: 1px solid #333;
-  color: #555;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.7rem;
-  padding: 2px 5px;
+  border: 1px solid var(--border-color);
+  background: white;
 }
 
-.icon-btn.edit:hover { border-color: orange; color: orange; }
-.icon-btn.delete:hover { border-color: red; color: red; }
-
-/* Flash Effect */
-.flash-active {
-  position: relative;
-}
-.flash-active::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 255, 65, 0.2);
-  pointer-events: none;
-  animation: flash-fade 0.3s ease-out forwards;
+.icon-btn:hover {
+  background: #f6f6f7;
 }
 
-@keyframes flash-fade {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+.icon-btn.delete {
+  color: var(--danger);
+  border-color: #ffcdd2;
+}
+
+.icon-btn.delete:hover {
+  background: #fff4f4;
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+  .input-group {
+    grid-template-columns: 1fr;
+  }
 }
